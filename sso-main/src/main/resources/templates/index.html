@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <h1>欢迎来到 Code Shop</h1>
+    <span>
+        <a th:if="${session.loginUser==null}" href="http://login.codeshop.com:9000/view/login?target=http://www.codeshop.com:9001/view/index/">登录</a>
+        <a th:unless="${session.loginUser==null}" href="http://login.codeshop.com:9000/login/loginOut?target=http://www.codeshop.com:9001/view/index">退出</a>
+    </span>
+    <p th:unless="${session.loginUser==null}">
+        <span style="color: aquamarine;" th:text="${session.loginUser.username}"></span>已登录
+
+    </p>
+</body>
+</html>
